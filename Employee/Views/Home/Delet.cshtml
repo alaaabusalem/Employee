@@ -1,0 +1,21 @@
+﻿@model Employees;
+@{
+	ViewBag.Title = "Delet";
+	var photoPath = "~/image/" + (String.IsNullOrEmpty(Model.PhotoPath) ? "a.jpg" : Model.PhotoPath);
+
+}
+
+<div class=" row card-deck">
+
+	
+		<div class="card col-md-3 m-3">
+			<h5 class="card-header">@Model.Name</h5>
+			<div class="card-body">
+				<img src="@photoPath" asp-appen-version="true" class=" card-img-top img-size" />
+				<a asp-controller="Home" asp-action="Index"  class="btn btn-primary">Back</a>
+
+			<a asp-controller="Home" asp-action="DeletEmployee" asp-route-id="@Model.Id" class="btn btn-danger">Delet</a>
+			</div>
+		</div>
+
+</div>

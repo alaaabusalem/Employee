@@ -1,0 +1,22 @@
+﻿@model Employees;
+
+@{
+	ViewBag.Title = "Details";
+	var path = "~/image/" + (String.IsNullOrEmpty(Model.PhotoPath) ? "defaultemp.jpg" : Model.PhotoPath);
+}
+
+<div class=" row  justify-content-center col-md-3">
+
+	
+		<div class="card">
+			<h5 class="card-header">@Model.Name</h5>
+			<div class="card-body">
+			<img src="@path" class="img-size" />
+				<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back</a>
+				<a asp-action="Edit" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+			<a asp-action="Delet" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-danger">Delet</a>
+			</div>
+		</div>
+	
+</div>
+

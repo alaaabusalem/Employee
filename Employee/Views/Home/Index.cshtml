@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Employees>
+@{
+	ViewBag.Title = "Index";
+}
+
+<div class=" row card-deck">
+
+	@foreach (var item in Model)
+	{
+		var photoPath = "~/image/" + (String.IsNullOrEmpty(item.PhotoPath) ? "a.jpg" : item.PhotoPath);
+		<div class="card col-md-3 m-3">
+  <h5 class="card-header">@item.Name</h5>
+  <div class="card-body">
+				<img src="@photoPath" asp-appen-version="true" class=" card-img-top img-size" />
+    <a asp-controller="Home" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">View</a>
+	<a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+	<a asp-action="Delet" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-danger">Delet</a>
+  </div>
+</div>
+	}
+</div>
